@@ -6,7 +6,7 @@ public class UtilisateurAux {
 	private String nom;
 	private String prenom;
 	private String nomString;
-	private String type; // interne CDVI, pretataire externe
+	
 	private String email;
 	private String username;
 	private String password;
@@ -29,7 +29,7 @@ public class UtilisateurAux {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.nomString = nomString;
-		this.type = type;
+		
 		this.email = email;
 		this.username = username;
 		this.password = password;
@@ -72,13 +72,7 @@ public class UtilisateurAux {
 		this.nomString = nomString;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 
 	public String getEmail() {
 		return email;

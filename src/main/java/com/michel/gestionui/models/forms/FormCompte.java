@@ -7,7 +7,7 @@ public class FormCompte {
 	private String nom;
 	private String username;
 	private String password;
-	private String type;
+	
 	private String role;
 	
 	public FormCompte() {
@@ -56,14 +56,7 @@ public class FormCompte {
 	}
 
 
-	public String getType() {
-		return type;
-	}
-
-
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 
 
 	public String getRole() {

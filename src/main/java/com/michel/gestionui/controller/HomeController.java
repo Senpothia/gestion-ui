@@ -92,7 +92,7 @@ public class HomeController {
 		utilisateurAux.setNom(formCompte.getNom());
 		utilisateurAux.setToken(formCompte.getPassword());
 		utilisateurAux.setUsername(formCompte.getUsername());
-		utilisateurAux.setType(formCompte.getType());
+		
 		utilisateurAux.setRole("USER");
 
 		microServiceGestion.creerCompte(utilisateurAux);

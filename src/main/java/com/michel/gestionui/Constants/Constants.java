@@ -9,5 +9,6 @@ public class Constants {
 	public static final String CREATION_COMPTE = "creerCompte";
 	public static final String ESPACE_PERSONEL = "espace";
 	public static final String MODIFIER_COMPTE = "modifierCompte";
+	public static final String ALERTE_BLOCAGE = "alerteBlocage";
 
 }
