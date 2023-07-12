@@ -1,0 +1,151 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<title>Plannings</title>
+<link rel="shortcut icon" type="image/x-icon" href="/images/logo0.png" />
+</head>
+<body>
+	<div class="container">
+
+
+		<!-- Entete -->
+		<span th:if="${authentification}">
+			<div th:replace="fragments/entete_post :: entete_post"></div>
+		</span> <span th:unless="${authentification}">
+			<div th:replace="fragments/entete_init :: entete_init"></div>
+		</span>
+		<!-- ---------------- -->
+
+		<div class="row">
+			<div class="col">
+				<img class="img-fluid" src="/images/bandeau15.jpg"
+					th:src="@{/images/bandeau15.jpg}" />
+			</div>
+		</div>
+
+		<div class="row">
+
+			<h1>Organisation du système</h1>
+
+			<div>
+
+
+			<p> <strong>Liste des droits associés aux utilisateurs:</strong><br><br>
+					• USER: simple consultation. Ne fait pas partie des ressources projet. Ne participe pas activement aux projet.<br>
+					• BE: ressource projet classique, membre du BE ou autre. Consulte, renseigne les phases, rédige des fiches pour les phases le concernant<br>
+					• RESBE: responsable BE. Consulte, renseigne les phases, rédige des fiches pour toutes les phases<br>
+					• CPROD: Chef produit. Consulte, créer, supprime des projets, les phases, les fiches, rédige des fiches<br>
+					• LABO: Administration du système, développement, déployement, maintenance, attribution des droits, droits CPROD<br>
+					</p>
+
+				<p>
+					<strong>Synoptique de fonctionnement</strong><br> 
+					<img class="img-fluid" src="/images/synoptique.png" th:src="@{/images/synoptique.png}" />
+
+
+
+				</p>
+
+				<p>
+					<strong>Exemples de phases</strong><br> <br>
+					• Test en température <br> • Vérifier la notice <br>
+					• Corriger bog de lecture de badges <br>
+					• Résoudre problème de connexion réseau de la platine <br>
+					• Rédiger cahier des charges  <br>
+
+
+
+				</p>
+				
+				<p>
+					<strong>Exemples de fiches</strong><br> <br>
+					• Elévation de température anormale du boitier <br> • Blocage du lecteur à -20°C <br>
+					• Problème de continuité à la terre du coffret métallique <br>
+					• Non conformité au test de rigidité diélectrique <br>
+					• Défaut d'étanchéité  <br>
+
+
+
+				</p>
+
+				
+				<p>
+					<strong>Agenda</strong><br> <br>
+					• Toutes les ressources d'un projet dispose d'un agenda <br>
+					• Un visiteur ne dispose pas d'agenda <br>
+					• Un agenda est composé de tâches <br>
+					• Les tâches peuvent être créer, modifiées ou supprimer<br>
+				
+				</p>
+				
+					
+				<p>
+					<strong>Notes</strong><br> <br>
+					• Il y a deux types de note: la note de phase et la note de projet<br>
+					• Une note est une information liée à une phase ou un projet qu'une ressource souhaite mémoriser pour ses besoins  <br>
+					• Seule une ressource peut créer une note, la modifier ou la supprimer <br>
+					• Les notes sont personnelles. Seul son auteur peut les consulter<br>
+				
+				</p>
+				
+				<p>
+					<strong>Historiques</strong><br> <br>
+					• Il y a deux types d'historique: l'historique de phase et l'historique de projet<br>
+					• Un historique est un ensemble de notes liées entre elles selon une chronologie, un thème, etc.  <br>
+					• Seule une ressource peut créer un historique, le modifier ou le supprimer <br>
+					• Les historiques sont personnels. Seul l''auteur peut les consulter<br>
+				
+				</p>
+
+				
+
+
+			
+
+				
+
+				
+
+			</div>
+		</div>
+
+		<!-- footer -->
+
+		<!-- PIED DE PAGE -->
+
+		<div th:replace="fragments/footer :: footer"></div>
+
+		<!-- ********************************************* -->
+
+		<!-- footer -->
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>
