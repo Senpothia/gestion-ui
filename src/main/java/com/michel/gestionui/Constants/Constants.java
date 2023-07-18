@@ -10,5 +10,6 @@ public class Constants {
 	public static final String ESPACE_PERSONEL = "espace";
 	public static final String MODIFIER_COMPTE = "modifierCompte";
 	public static final String ALERTE_BLOCAGE = "alerteBlocage";
+	public static final String CREER_COMPTE_BANQUE = "creerCompteBanque";
 
 }

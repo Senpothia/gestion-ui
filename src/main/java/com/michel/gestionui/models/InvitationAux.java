@@ -2,11 +2,12 @@ package com.michel.gestionui.models;
 
 
 
-public class RegleAux {
+public class InvitationAux {
 	
 	private Integer id;
 	private CompteAux compte;
-	private CategorieAux categorie;
-	private float valeur;
+	private UtilisateurAux invite;
+	private String droit;
+	
 
 }
