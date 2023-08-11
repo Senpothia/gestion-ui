@@ -1,5 +1,7 @@
 package com.michel.gestionui.Constants;
 
+import javax.servlet.http.HttpSession;
+
 public class Constants {
 
 	public static final String PAGE_ACCUEIL = "accueil";
@@ -11,5 +13,16 @@ public class Constants {
 	public static final String MODIFIER_COMPTE = "modifierCompte";
 	public static final String ALERTE_BLOCAGE = "alerteBlocage";
 	public static final String CREER_COMPTE_BANQUE = "creerCompteBanque";
+	public static final String COMPTES = "comptes";
+	public static final String COMPTE = "compte";
+	
+	
+	
+	public static String getToken(HttpSession session) {
+
+		String token = (String) session.getAttribute("TOKEN");
+		token = "Bearer " + token;
+		return token;
+	}
 
 }
