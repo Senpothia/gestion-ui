@@ -34,5 +34,11 @@ public interface ProxyGestion {
 	
 	@GetMapping("/categories/get/all")
 	List<String> getAllNomsCategories(@RequestHeader("Authorization") String token);
+	
+	@GetMapping("/operation/modifier/{id}")
+	OperationAux getOperationsById(@RequestHeader("Authorization") String token, @PathVariable("id") Integer id);
+	
+	@PostMapping("/operation/modifier/{id}")
+	void modifyOperation(@RequestHeader("Authorization") String token, @RequestBody OperationAux operation, @PathVariable("id") Integer id);
 }
  

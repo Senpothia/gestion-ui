@@ -14,6 +14,10 @@ public interface MicroServiceGestion extends ProxyGlobal{
 	
 
 	
+
+	
+
+	
 	
 	
 	

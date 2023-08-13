@@ -28,8 +28,6 @@ public class OperationController {
 	@Autowired
 	private UserConnexion userConnexion;
 
-
-
 	@GetMapping("/compte/ajouter/operations/{idCompte}")
 	public String accessOperationForm(Model model, HttpSession session, @PathVariable("idCompte") Integer idCompte) {
 
@@ -40,7 +38,7 @@ public class OperationController {
 
 			String token = Constants.getToken(session);
 			List<String> categories = microServiceGestion.getAllNomsCategories(token);
-			
+
 			model.addAttribute("operation", new OperationAux());
 			model.addAttribute("categories", categories);
 			model.addAttribute("compte", idCompte);
@@ -52,8 +50,9 @@ public class OperationController {
 	}
 
 	@PostMapping("/operation/ajouter/{idCompte}")
-	public String processOperationForm(Model model, HttpSession session, @PathVariable("idCompte") Integer idCompte, OperationAux operation) {
-		
+	public String processOperationForm(Model model, HttpSession session, @PathVariable("idCompte") Integer idCompte,
+			OperationAux operation) {
+
 		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
 		if (utilisateur == null) {
 			return "redirect:/connexion";
@@ -67,11 +66,10 @@ public class OperationController {
 
 		}
 	}
-	
+
 	@GetMapping("/compte/operations/{idCompte}")
 	public String getOperationsByAccount(Model model, HttpSession session, @PathVariable("idCompte") Integer idCompte) {
-		
-		
+
 		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
 		if (utilisateur == null) {
 			return "redirect:/connexion";
@@ -81,7 +79,7 @@ public class OperationController {
 			String token = Constants.getToken(session);
 			List<OperationAux> operations = microServiceGestion.getOperationsByAccount(token, idCompte);
 			CompteAux compte = microServiceGestion.getCompte(token, idCompte);
-			
+
 			if (operations.isEmpty()) {
 
 				vide = true;
@@ -89,11 +87,52 @@ public class OperationController {
 			model.addAttribute("operations", operations);
 			model.addAttribute("compte", compte);
 			model.addAttribute("vide", vide);
-
 			return Constants.OPERATIONS;
 
-		
+		}
 	}
+
+	@GetMapping("/operation/modifier/{id}")
+	public String accessModificationOperation(Model model, HttpSession session, @PathVariable("id") Integer id) {
+
+		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
+		if (utilisateur == null) {
+			return "redirect:/connexion";
+		} else {
+
+			String token = Constants.getToken(session);
+			OperationAux operation = microServiceGestion.getOperationsById(token, id);
+			List<String> categories = microServiceGestion.getAllNomsCategories(token);
+
+			model.addAttribute("operation", operation);
+			model.addAttribute("compte", operation.getCompte());
+			model.addAttribute("categories", categories);
+
+			System.out.println("Operation montant: " + operation.getMontant());
+			System.out.println("Compte nom: " + operation.getCompte().getNom());
+
+			return Constants.MODIFIER_OPERATION;
+
+		}
+
+	}
+
+	@PostMapping("/operation/modifier/{id}")
+	public String modififyOperation(Model model, HttpSession session, OperationAux operation, @PathVariable("id") Integer id) {
+
+		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
+		if (utilisateur == null) {
+			return "redirect:/connexion";
+		} else {
+			
+			operation.setId(id);
+			String token = Constants.getToken(session);
+			microServiceGestion.modifyOperation(token, operation, id);
+
+			return Constants.ESPACE_PERSONEL;
+
+		}
+
 	}
 
 }
