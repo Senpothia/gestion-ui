@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-
+import com.michel.gestionui.models.CategorieAux;
 import com.michel.gestionui.models.CompteAux;
+import com.michel.gestionui.models.OperationAux;
 
 public interface ProxyGestion {
 	
@@ -22,5 +23,16 @@ public interface ProxyGestion {
 	
 	@GetMapping("/get/compte/{idCompte}")
 	CompteAux getCompte(@RequestHeader("Authorization") String token, @PathVariable("idCompte") Integer idCompte);
-
+	
+	
+	@GetMapping("/compte/ajouter/operations/{id}")
+	List<OperationAux> getOperationsByAccount(@RequestHeader("Authorization") String token, @PathVariable("id")Integer id);
+	
+	@PostMapping("/operation/ajouter/{idCompte}")
+	void ajouterOperation(@RequestHeader("Authorization") String token, @RequestBody OperationAux operation, @PathVariable("idCompte")Integer idCompte);
+	
+	
+	@GetMapping("/categories/get/all")
+	List<String> getAllNomsCategories(@RequestHeader("Authorization") String token);
 }
+ 

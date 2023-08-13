@@ -15,7 +15,8 @@ public class Constants {
 	public static final String CREER_COMPTE_BANQUE = "creerCompteBanque";
 	public static final String COMPTES = "comptes";
 	public static final String COMPTE = "compte";
-	
+	public static final String OPERATIONS = "operations";
+	public static final String CREATION_OPERATION = "creerOperation";
 	
 	
 	public static String getToken(HttpSession session) {
