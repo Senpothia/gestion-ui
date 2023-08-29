@@ -117,8 +117,8 @@ public class OperationController {
 
 	}
 
-	@PostMapping("/operation/modifier/{id}")
-	public String modififyOperation(Model model, HttpSession session, OperationAux operation, @PathVariable("id") Integer id) {
+	@PostMapping("/operation/modifier/{id}/{idCompte}")
+	public String modififyOperation(Model model, HttpSession session, OperationAux operation, @PathVariable("id") Integer id, @PathVariable("idCompte") Integer idCompte) {
 
 		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
 		if (utilisateur == null) {
@@ -129,7 +129,7 @@ public class OperationController {
 			String token = Constants.getToken(session);
 			microServiceGestion.modifyOperation(token, operation, id);
 
-			return Constants.ESPACE_PERSONEL;
+			return "redirect:/compte/operations/" + idCompte;
 
 		}
 

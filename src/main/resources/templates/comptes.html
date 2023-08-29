@@ -60,6 +60,7 @@
 								<th scope="col">Voir</th>
 								<th scope="col">Opérations</th>
 								<th scope="col">Opérations</th>
+								<th scope="col">Statistiques</th>
 
 
 							</tr>
@@ -88,6 +89,12 @@
 								<td><a th:href="@{/compte/ajouter/operations/{idCompte}(idCompte=${compte.id})}">
 										<p type="text" class="btn btn-block"
 											style="background-color: #407A0C; color: white">Ajouter</p>
+									</a></td>
+									
+										
+								<td><a th:href="@{/compte/statistiques/{idCompte}(idCompte=${compte.id})}">
+										<p type="text" class="btn btn-block"
+											style="background-color: #407A0C; color: white">Voir</p>
 									</a></td>
 							</tr>
 

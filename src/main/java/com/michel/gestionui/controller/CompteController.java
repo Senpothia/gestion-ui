@@ -91,5 +91,43 @@ public class CompteController {
 
 		}
 	}
+	
+	
+	@GetMapping("/compte/modifier/{idCompte}")
+	public String modifierCompte(Model model, HttpSession session, @PathVariable("idCompte") Integer idCompte) {
+
+		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
+		if (utilisateur == null) {
+			return "redirect:/connexion";
+		} else {
+
+			String token = Constants.getToken(session);
+			CompteAux compte = microServiceGestion.getCompte(token, idCompte);
+			model.addAttribute("compte", compte);
+			
+			return Constants.MODIFIER_COMPTE_BANCAIRE;
+
+		}
+	}
+	
+	
+	@PostMapping("/compte/modifier/{id}")
+	public String modifierCompte(Model model, HttpSession session, CompteAux compte, @PathVariable("id") Integer idCompte) {
+
+		Utilisateur utilisateur = userConnexion.obtenirUtilisateur(session, model);
+		if (utilisateur == null) {
+			return "redirect:/connexion";
+		} else {
+
+			String token = Constants.getToken(session);
+			compte.setProprietaire(utilisateur.getId());
+			compte.setId(idCompte);
+			microServiceGestion.modifierCompteBancaire(token, compte);
+			return Constants.ESPACE_PERSONEL;
+
+		}
+
+	}
+
 
 }

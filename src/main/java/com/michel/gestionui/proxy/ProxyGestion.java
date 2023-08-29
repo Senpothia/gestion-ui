@@ -21,6 +21,9 @@ public interface ProxyGestion {
 	@PostMapping("/compte/save")
 	void creerCompteBancaire(@RequestHeader("Authorization") String token, @RequestBody CompteAux compte);
 	
+	@PostMapping("/compte/modifier")
+	void modifierCompteBancaire(@RequestHeader("Authorization") String token, @RequestBody CompteAux compte);
+	
 	@GetMapping("/get/compte/{idCompte}")
 	CompteAux getCompte(@RequestHeader("Authorization") String token, @PathVariable("idCompte") Integer idCompte);
 	

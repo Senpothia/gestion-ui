@@ -28,20 +28,16 @@
 		<!-- ---------------- -->
 
 		<!-- IMAGE -->
-		<!-- IMAGE -->
 		<div class="row">
 			<div class="col">
-				<img class="img-fluid" src="/images/bandeau22.jpg" alt="" th:src="@{/images/bandeau22.jpg}" />
+				<img class="img-fluid" src="/images/bandeau14.jpg" alt="" th:src="@{/images/bandeau14.jpg}" />
 			</div>
 		</div>
 		<!-- ----------------- -->
 
 		<div class="message row">
 
-			<h1>Complétez ce formulaire pour modifier votre compte.</h1>
-			<h3 style="color: red;" th:if="${error}">Erreur! Pensez à renseigner le mot de passe.</h3>
-
-			</span>
+			<h1>Complétez ce formulaire pour modifier le compte bancaire.</h1>
 
 		</div>
 
@@ -49,50 +45,34 @@
 		<div class="row">
 
 			<div class="col">
-				<form th:action="@{/compte/modifier}" method="post" th:object="${formCompte}">
+				<form th:action="@{/compte/modifier/{id}(id=${compte.id})}" method="post" th:object="${compte}">
 
-
-					<div class="form-group">
-						<label for="exampleInputEmail1">Prénom</label> <input type="text" class="form-control"
-							th:field="*{prenom}" th:value="*{prenom}">
-					</div>
 
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nom</label> <input type="text" class="form-control"
 							th:field="*{nom}" th:value="*{nom}">
 					</div>
 
-
 					<div class="form-group">
-						<label for="exampleInputEmail1">Email</label> <input type="text" class="form-control"
-							th:field="*{username}" th:value="*{username}">
+						<label for="exampleInputEmail1">Référence</label> <input type="text" class="form-control"
+							th:field="*{reference}" th:value="*{reference}">
 					</div>
 
+
 					<div class="form-group">
-						<label for="exampleInputEmail1">Password</label> <input type="text" class="form-control"
-							th:field="*{password}">
+						<label for="exampleInputEmail1">Solde</label> <input type="number" class="form-control"
+						step="0.01"	th:field="*{solde}" th:value="*{solde}">
 					</div>
+
+					
 
 					<div class="d-flex justify-content-end">
 
-						<span th:if=${groupe3}>
+						<a class="btn mr-1" style="background-color: #407A0C; color: white;" href="/"
+							role="button">Annuler</a>
+						<input class="btn" style="background-color: #407A0C; color: white;" type="submit"
+							value="Valider">
 
-							<div class="form-group mr-3">
-								<a th:href="@{/change/mode/session}">
-									<p type="text" class="btn btn-block" style="background-color: red; color: white">
-										Privé</p>
-								</a>
-							</div>
-						</span>
-						<div class="form-group mr-3">
-							<a class="btn mr-1" style="background-color: #407A0C; color: white;" href="/espace"
-								role="button">Annuler</a>
-						</div>
-
-						<div class="form-group mr-3">
-							<input class="btn" style="background-color: #407A0C; color: white;" type="submit"
-								value="Valider">
-						</div>
 					</div>
 
 

@@ -18,6 +18,7 @@ public class Constants {
 	public static final String OPERATIONS = "operations";
 	public static final String CREATION_OPERATION = "creerOperation";
 	public static final String MODIFIER_OPERATION = "modifierOperation";
+	public static final String MODIFIER_COMPTE_BANCAIRE = "modifierCompteBancaire";
 	
 	
 	public static String getToken(HttpSession session) {

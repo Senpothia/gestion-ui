@@ -33,6 +33,41 @@
 			</div>
 		</div>
 		<!-- ----------------- -->
+		
+		<div class="row d-flex justify-content-center">
+
+			<h1>Présentation du compte</h1>
+
+
+		</div>
+
+		<div class="col">
+
+			<div class="row">
+				<strong><label class="mr-1">Nom: </label></strong>
+				<p th:text=${compte.nom}></p>
+
+			</div>
+
+			<div class="row">
+				<strong><label class="mr-1">Référence: </label></strong>
+				<p th:text="${compte.reference}"></p>
+
+			</div>
+
+			<div class="row">
+				<strong><label class="mr-1">Propriétaire: </label></strong>
+				<p th:text="${utilisateur.prenom}+' '+ ${utilisateur.nom}"></p>
+
+			</div>
+
+			<div class="row">
+				<strong><label class="mr-1">Solde: </label></strong>
+				<p th:text=${compte.solde}></p>
+
+			</div>
+
+		</div>
 
 		<span th:unless="${vide}">
 			<div class="row d-flex justify-content-center">
@@ -74,7 +109,7 @@
 							<tr th:each="operation, iStat: ${operations}">
 
 								<td th:text="${compte.nom}" />
-								<td th:text="${compte.proprietaire}" />
+								<td th:text="${utilisateur.prenom}+' '+ ${utilisateur.nom}" />
 
 								<td th:text="${#temporals.format(operation.date, 'dd-MM-yyyy')}" />
 							<td th:text="${operation.montant}" />

@@ -38,7 +38,7 @@
 		<div class="message row">
 
 			<p>
-				<b>Pour créer une opération, remplir ce formulaire.</b>
+				<b>Pour modifier une opération, remplir ce formulaire.</b>
 			</p>
 
 		</div>
@@ -57,7 +57,7 @@
 
 		<div class="container">
 
-			<form th:action="@{/operation/modifier/{id}(id=${operation.id})}" method="post"
+			<form th:action="@{/operation/modifier/{id}/{idCompte}(id=${operation.id}, idCompte=${compte.id})}" method="post"
 				th:object="${operation}">
 
 				<div class="col">
